@@ -10,6 +10,7 @@ export const Signup = async (req: Request, res: Response) => {
         const name = req.body.nome;
         const password = req.body.password;
 
+
         if (!email || !name || !password) {
             throw new Error("Insert all required information");
         }
