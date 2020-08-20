@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
-import { AddressInfo } from "net";
+import {AddressInfo} from "net";
 import {Signup} from "../endpoints/Signup";
 
 

@@ -14,7 +14,7 @@ export const Signup = async (req: Request, res: Response) => {
         
         if(!email || !name || !password) {
             throw new Error ("Insert all required information");
-        }
+        }   
 
         if(email.indexOf("@") === -1) {
             throw new Error ("Invalid email");
