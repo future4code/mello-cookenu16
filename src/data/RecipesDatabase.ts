@@ -8,6 +8,7 @@ class RecipesDatabase extends BaseDatabase {
         id: string,
         title: string,
         description: string,
+        creator: string,
         date = moment(new Date()).format("YYYY/MM/DD")
     ): Promise<void> {
         await this.getConnection()
@@ -16,6 +17,7 @@ class RecipesDatabase extends BaseDatabase {
                 date,
                 title,
                 description,
+                creator,
             })
             .into(RecipesDatabase.TABLE_NAME);
     }
