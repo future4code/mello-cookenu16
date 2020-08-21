@@ -14,11 +14,11 @@ export const createRecipe = async (
 
         checkMissingParams(authorization, title, description);
 
-        Authenticator.getData(authorization as string);
+        const userId = Authenticator.getData(authorization as string);
 
         const id = IdGenerator.generateId();
 
-        await RecipesDatabase.createRecipe(id, title, description);
+        await RecipesDatabase.createRecipe(id, title, description, userId.id);
 
         res.status(201).send({
             message: "Recipe was successfully created",

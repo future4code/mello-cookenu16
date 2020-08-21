@@ -23,7 +23,7 @@ class UserDatabase extends BaseDatabase {
         const result = await this.getConnection()
             .select("*")
             .from(UserDatabase.TABLE_NAME)
-            .where(email);
+            .where({ email });
 
         return result[0];
     }
@@ -35,6 +35,17 @@ class UserDatabase extends BaseDatabase {
             .where({ id });
 
         return result[0];
+    }
+
+    public async checkUserExistence(userId: string) {
+        const result = await this.getConnection()
+            .select("*")
+            .from(UserDatabase.TABLE_NAME)
+            .where({ id: userId });
+
+        if (result[0] === undefined) {
+            throw new Error("This user does not exist");
+        }
     }
 }
 
