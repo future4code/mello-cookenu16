@@ -11,7 +11,7 @@ export const Signup = async (req: Request, res: Response) => {
 
         checkMissingParams(email, name, password);
 
-        if (email.match(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i)) {
+        if (!email.match(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i)) {
             throw new Error("Invalid email");
         }
 
